@@ -1,15 +1,69 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Hello world!</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="stylesheets/main.css" />
+<head>
+    <title>Hello world!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/main.css" />
+    <link rel="stylesheet" href="components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="components/angular-material/themes/default-theme.css"></head>
+<body>
+    <div ng-controller="AppCtrl" layout="vertical" layout-fill>
 
-        <!-- build:js javascripts/main.js -->
-        <script type="text/javascript" src="javascripts/main.js"></script>
-        <!-- endbuild -->
-    </head>
-    <body>
-        <h1>Hello world!</h1>
-    </body>
+        <md-toolbar scroll-shrink>
+            <h1 class="md-toolbar-tools">
+                <span flex>吸钱利器</span>
+                <md-button class="md-fab md-primary" ng-click="toggleLeft()">
+                    <!-- <md-tooltip>Refresh</md-tooltip> -->
+                    <md-icon icon="/img/icons/ic_refresh_24px.svg"></md-icon>
+                </md-button>
+            </h1>
+        </md-toolbar>
+
+        <md-content style="height: 600px;">
+            <md-subheader class="md-primary">总罚款金额：￥8000</md-subheader>
+            <md-list>
+                <md-item ng-repeat="item in todos">
+                    <md-item-content>
+                        <div class="md-tile-left">
+                            <img ng-src="{{item.face}}" alt="{{item.who}}" class="face">
+                        </div>
+                        <div class="md-tile-content">
+                            <h3>{{item.what}}</h3>
+                            <h4>{{item.who}}</h4>
+                            <p>{{item.notes}}</p>
+                        </div>
+                    </md-item-content>
+                    <md-divider inset></md-divider>
+                </md-item>
+            </md-list>
+        </md-content>
+
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" component-id="left" is-locked-open="$media('md')">
+            <md-toolbar class="md-theme-indigo">
+                <h1 class="md-toolbar-tools">Sidenav Left</h1>
+            </md-toolbar>
+            <md-content class="md-padding">
+                <md-list>
+                    <md-item ng-repeat="item in todos">
+                        <md-item-content>
+                            <div class="md-tile-content">
+                                <h3>{{item.what}}</h3>
+                            </div>
+                        </md-item-content>
+                        <md-divider></md-divider>
+                    </md-item>
+                </md-list>
+            </md-content>
+        </md-sidenav>
+    </div>
+    <!-- build:js javascripts/main.js -->
+    <script src="components/angular/angular.js"></script>
+    <script src="components/angular-aria/angular-aria.js"></script>
+    <script src="components/angular-animate/angular-animate.js"></script>
+    <script src="components/hammerjs/hammer.js"></script>
+    <script src="components/angular-material/angular-material.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!-- endbuild -->
+</body>
 </html>
