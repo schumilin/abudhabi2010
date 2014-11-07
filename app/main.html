@@ -1,0 +1,18 @@
+<md-content style="height: 600px;">
+    <md-subheader class="md-primary">总罚款金额：￥{{ total }}</md-subheader>
+    <md-list>
+        <md-item ng-repeat="penalty in penalties">
+            <md-item-content>
+                <div class="md-tile-left">
+                    <img ng-src="images/schumi.jpg" alt="{{item.who}}" class="face">
+                </div>
+                <div class="md-tile-content">
+                    <h3>缴纳罚款 {{ penalty.money }} 大洋</h3>
+                    <h4>{{ penalty.user }}</h4>
+                    <p>{{ penalty.reason }}</p>
+                </div>
+            </md-item-content>
+            <md-divider inset></md-divider>
+        </md-item>
+    </md-list>
+</md-content>

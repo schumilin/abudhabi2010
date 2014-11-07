@@ -1,0 +1,10 @@
+<md-content>
+    <form style="padding: 20px;" name="penaltyInfo">
+        <md-radio-group ng-model="penalty.user" name="penaltyUser" required>
+            <md-radio-button value="{{ user }}" ng-repeat="user in users">{{ user }}</md-radio-button>
+        </md-radio-group>
+        <md-text-float name="reason" label="Reason" ng-model="penalty.reason" required></md-text-float>
+        <md-slider discrete ng-model="penalty.money" step="10" min="10" max="200" aria-label="money" name="penaltyMoney" required></md-slider>
+        <md-button class="md-raised md-primary" ng-click="sendInfo()" ng-disabled="penaltyInfo.penaltyUser.$invalid || penaltyInfo.penaltyMoney.$invalid">提交</md-button>
+    </form>
+</md-content>

@@ -1,0 +1,15 @@
+<md-content>
+    <form style="padding: 20px;" name="userInfo">
+        <md-text-float label="Team" ng-model="user.team" disabled></md-text-float>
+        <md-text-float name="username" label="Name" ng-model="user.name" required></md-text-float>
+        <md-text-float label="Nickname" ng-model="user.nickname"></md-text-float>
+        <!-- <md-switch ng-model="user.admin" aria-label="admin" ng-true-value="true" ng-false-value="false">管理员：{{ user.admin }}</md-switch> -->
+        <md-checkbox ng-model="user.admin" aria-label="admin" ng-true-value="true" ng-false-value="false">管理员</md-checkbox>
+        <md-radio-group ng-model="user.level">
+            <md-radio-button value="1" aria-label="Label 1">下忍</md-radio-button>
+            <md-radio-button value="2" noink>中忍</md-radio-button>
+            <md-radio-button value="3" aria-label="Label 3">上忍</md-radio-button>
+        </md-radio-group>
+        <md-button class="md-raised md-primary" ng-click="sendInfo()" ng-disabled="userInfo.username.$invalid">提交</md-button>
+    </form>
+</md-content>
